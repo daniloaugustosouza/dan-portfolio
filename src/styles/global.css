@@ -1,0 +1,115 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  --cathedral-shift: 0px;
+  font-family: "Libre Baskerville", serif;
+  color: #e6e1d6;
+  min-height: 100vh;
+  line-height: 1.75;
+  overflow-x: hidden;
+
+  background: linear-gradient(
+    180deg,
+    #0f1722 0%,
+    #121c2a 45%,
+    #162235 100%
+  );
+}
+
+
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+   filter: brightness(0.7) contrast(1.15) saturate(9.9) blur(1px);
+
+  background:
+    radial-gradient(
+      900px 600px at 15% 10%,
+      rgba(120, 150, 190, 0.28),
+      transparent 65%
+    ),
+    radial-gradient(
+      900px 600px at 85% 10%,
+      rgba(120, 150, 190, 0.28),
+      transparent 65%
+    );
+
+    
+
+  animation: frescoBreath 120s ease-in-out infinite alternate;
+
+  transform:
+    translateY(var(--cathedral-shift))
+    rotate(var(--cathedral-rotate));
+
+  transition: transform 0.25s ease-out;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: -12%;
+  z-index: -3;
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(15,23,34,0.75),
+      rgba(15,23,34,0.9)
+    );
+
+  background-size: 90%;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  transform:
+    translateY(var(--cathedral-shift))
+    rotate(var(--cathedral-rotate));
+
+  transform-origin: center center;
+
+/*   
+  opacity: 0.45;
+  mix-blend-mode: luminosity;
+
+  transition: transform 0.25s ease-out; */
+}
+
+
+
+@keyframes frescoBreath {
+  0%   { transform: translate(0,0) rotate(0deg); }
+  50%  { transform: translate(-2%, -1.5%) rotate(0.25deg); }
+  100% { transform: translate(1.5%, 2%) rotate(-0.25deg); }
+}
+
+
+.reveal {
+  opacity: 0;
+  transform: translateY(90px);
+  filter: blur(8px);
+  transition:
+    opacity 1.6s ease,
+    transform 1.6s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 1.6s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}

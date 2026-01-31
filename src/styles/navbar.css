@@ -1,0 +1,125 @@
+/* styles/navbar.css */
+
+
+.navbar {
+  font-family: "Special Elite", monospace;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 1.4rem 3.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+
+  background: rgba(15, 23, 34, 0.65);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+  overflow: hidden;
+}
+
+.navbar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(255,255,255,0.08),
+    transparent 70%
+  );
+  transform: translateX(-120%);
+  animation: navbarScan 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes navbarScan {
+  0%   { transform: translateX(-120%); }
+  50%  { transform: translateX(120%); }
+  100% { transform: translateX(120%); }
+}
+
+
+.logo {
+  font-family: "Special Elite", monospace;
+  letter-spacing: 0.14em;
+  font-size: 1.1rem;
+  color: #f0e6c0;
+}
+
+
+.navbar nav a {
+  margin-left: 2.5rem;
+  text-decoration: none;
+  color: rgba(230,230,230,0.85);
+  position: relative;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  transition: color 0.35s ease;
+}
+
+.navbar nav a::after {
+  content: "";
+  position: absolute;
+  left: -10%;
+  bottom: -10px;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0.2),
+    rgba(255,255,255,1),
+    rgba(255,255,255,0.2)
+  );
+  transition: width 0.45s cubic-bezier(.22,1,.36,1);
+}
+
+.navbar nav a::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 180%;
+  height: 300%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255,255,255,0.25),
+    rgba(255,255,255,0.15),
+    transparent 65%
+  );
+  transform: translate(-50%, -50%) scale(0.6);
+  opacity: 0;
+  filter: blur(18px);
+  transition: opacity 0.45s ease, transform 0.45s cubic-bezier(.22,1,.36,1);
+  pointer-events: none;
+}
+
+.navbar nav a:hover {
+  color: #f0da96;
+}
+
+.navbar nav a:hover::after {
+  width: 120%;
+}
+
+.navbar nav a:hover::before {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.4rem 1rem;
+    text-align: center;
+  }
+
+  .navbar nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.2rem;
+  }
+}
