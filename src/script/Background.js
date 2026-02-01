@@ -14,28 +14,33 @@ export default function initBackgroundEffects() {
   );
   reveals.forEach(el => observer.observe(el));
 
-  let lastScrollY = window.scrollY;
+  const isMobile = () => window.innerWidth <= 768;
 
+  if (isMobile()) {
+    bg.style.transform = "none";
+    if (glow) {
+      glow.style.opacity = 1;
+      glow.style.transform = "scale(1)";
+    }
+    return () => {
+      reveals.forEach(el => observer.unobserve(el));
+    };
+  }
+
+  let lastScrollY = window.scrollY;
   let targetShift = 0;
   let currentShift = 0;
-
   let targetRotate = -2;
   let currentRotate = -2;
-
   let targetGlowOpacity = 1;
   let currentGlowOpacity = 1;
-
   let targetGlowScale = 1;
   let currentGlowScale = 1;
 
   const ease = 0.07;
   const glowEase = 0.08;
 
-  const isMobile = () => window.innerWidth <= 768;
-
   const onScroll = () => {
-    if (isMobile()) return;
-
     const scroll = window.scrollY;
     const delta = scroll - lastScrollY;
 
@@ -56,25 +61,17 @@ export default function initBackgroundEffects() {
   window.addEventListener("scroll", onScroll, { passive: true });
 
   const animate = () => {
-    if (!isMobile()) {
-      currentShift += (targetShift - currentShift) * ease;
-      currentRotate += (targetRotate - currentRotate) * ease;
+    currentShift += (targetShift - currentShift) * ease;
+    currentRotate += (targetRotate - currentRotate) * ease;
 
-      bg.style.transform = `translateY(${currentShift}px) rotate(${currentRotate}deg)`;
+    bg.style.transform = `translateY(${currentShift}px) rotate(${currentRotate}deg)`;
 
-      if (glow) {
-        currentGlowOpacity += (targetGlowOpacity - currentGlowOpacity) * glowEase;
-        currentGlowScale += (targetGlowScale - currentGlowScale) * glowEase;
+    if (glow) {
+      currentGlowOpacity += (targetGlowOpacity - currentGlowOpacity) * glowEase;
+      currentGlowScale += (targetGlowScale - currentGlowScale) * glowEase;
 
-        glow.style.opacity = currentGlowOpacity;
-        glow.style.transform = `scale(${currentGlowScale})`;
-      }
-    } else {
-      bg.style.transform = "none";
-      if (glow) {
-        glow.style.opacity = 1;
-        glow.style.transform = "scale(1)";
-      }
+      glow.style.opacity = currentGlowOpacity;
+      glow.style.transform = `scale(${currentGlowScale})`;
     }
 
     requestAnimationFrame(animate);
