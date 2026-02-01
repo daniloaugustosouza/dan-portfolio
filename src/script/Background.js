@@ -31,7 +31,11 @@ export default function initBackgroundEffects() {
   const ease = 0.07;
   const glowEase = 0.08;
 
+  const isMobile = () => window.innerWidth <= 768;
+
   const onScroll = () => {
+    if (isMobile()) return;
+
     const scroll = window.scrollY;
     const delta = scroll - lastScrollY;
 
@@ -52,18 +56,25 @@ export default function initBackgroundEffects() {
   window.addEventListener("scroll", onScroll, { passive: true });
 
   const animate = () => {
-    currentShift += (targetShift - currentShift) * ease;
-    currentRotate += (targetRotate - currentRotate) * ease;
+    if (!isMobile()) {
+      currentShift += (targetShift - currentShift) * ease;
+      currentRotate += (targetRotate - currentRotate) * ease;
 
-    bg.style.transform =
-      `translateY(${currentShift}px) rotate(${currentRotate}deg)`;
+      bg.style.transform = `translateY(${currentShift}px) rotate(${currentRotate}deg)`;
 
-    if (glow) {
-      currentGlowOpacity += (targetGlowOpacity - currentGlowOpacity) * glowEase;
-      currentGlowScale += (targetGlowScale - currentGlowScale) * glowEase;
+      if (glow) {
+        currentGlowOpacity += (targetGlowOpacity - currentGlowOpacity) * glowEase;
+        currentGlowScale += (targetGlowScale - currentGlowScale) * glowEase;
 
-      glow.style.opacity = currentGlowOpacity;
-      glow.style.transform = `scale(${currentGlowScale})`;
+        glow.style.opacity = currentGlowOpacity;
+        glow.style.transform = `scale(${currentGlowScale})`;
+      }
+    } else {
+      bg.style.transform = "none";
+      if (glow) {
+        glow.style.opacity = 1;
+        glow.style.transform = "scale(1)";
+      }
     }
 
     requestAnimationFrame(animate);
