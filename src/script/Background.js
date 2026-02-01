@@ -14,9 +14,7 @@ export default function initBackgroundEffects() {
   );
   reveals.forEach(el => observer.observe(el));
 
-  const isMobile = () => window.innerWidth <= 768;
-
-  if (isMobile()) {
+  if (window.innerWidth <= 768) {
     bg.style.transform = "none";
     if (glow) glow.remove();
     return () => {
