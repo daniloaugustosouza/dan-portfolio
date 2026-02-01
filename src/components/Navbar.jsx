@@ -82,7 +82,7 @@ export default function Navbar() {
       </div>
 
       <audio ref={audioRef} loop>
-        <source src="./public/Eight Mountains by Savfk.mp3" type="audio/mpeg" />
+        <source src="/eight-mountains-by-savfk.mp3" type="audio/mpeg" />
         Seu navegador não suporta áudio.
       </audio>
     </header>
