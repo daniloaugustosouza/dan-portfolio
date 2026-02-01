@@ -41,7 +41,7 @@ body::before {
       rgba(240, 218, 150, 0.12) 38%,
       transparent 65%
     ),
-    radial-gradient(
+    radial-gradient(  
       900px 600px at 85% 10%,
       rgba(240, 218, 150, 0.25) 0%,
       rgba(240, 218, 150, 0.18) 22%,
