@@ -1,0 +1,83 @@
+.music-icon {
+  position: relative;
+  width: 28px;  
+  height: 40px;
+  cursor: pointer;
+  display: inline-block;
+  margin-left: 1rem;
+  transform-origin: center bottom;
+  transition: transform 0.5s cubic-bezier(.22,1,.36,1), filter 0.5s ease;
+  touch-action: manipulation;
+}
+
+.note-head,
+.note-stem,
+.note-flag {
+  transition: transform 0.4s ease-in-out, filter 0.4s ease-in-out;
+}
+
+.note-head { position: absolute; width: 10px; height: 10px; background: #f6e9bf; border-radius: 50%; bottom: 0; }
+.note-stem { position: absolute; width: 2px; height: 25px; background: #f6e9bf; }
+.note-flag { position: absolute; width: 12px; height: 6px; border-top: 2px solid #f6e9bf; border-right: 2px solid #f6e9bf; transform: rotate(45deg); transform-origin: bottom left; opacity: 0.8; }
+
+.note1 { left: 0; }
+.note1.note-stem { left: 8px; bottom: 5px; }
+.note1.note-flag { left: 8px; bottom: 28px; }
+
+.note2 { left: 12px; }
+.note2.note-stem { left: 20px; bottom: 5px; }
+.note2.note-flag { left: 20px; bottom: 28px; }
+
+.music-icon.playing .note-head,
+.music-icon.playing .note-stem,
+.music-icon.playing .note-flag {
+  animation: music-breath 2s ease-in-out infinite;
+}
+
+@keyframes music-breath {
+  0%   { transform: translateY(0) scale(1); filter: drop-shadow(0 0 4px #f0da96); }
+  25%  { transform: translateY(-1px) scale(1.05); filter: drop-shadow(0 0 6px #f0da96); }
+  50%  { transform: translateY(0) scale(1); filter: drop-shadow(0 0 8px #f0da96); }
+  75%  { transform: translateY(1px) scale(1.05); filter: drop-shadow(0 0 6px #f0da96); }
+  100% { transform: translateY(0) scale(1); filter: drop-shadow(0 0 4px #f0da96); }
+}
+
+.music-icon:hover,
+.music-icon:active {
+  transform: scale(1.25) rotate(-5deg);
+}
+
+.music-icon:hover .note-head,
+.music-icon:hover .note-stem,
+.music-icon:hover .note-flag,
+.music-icon:active .note-head,
+.music-icon:active .note-stem,
+.music-icon:active .note-flag {
+  transform: translateY(-2px) scale(1.1);
+  filter: drop-shadow(0 0 10px #f0da96);
+  transition: transform 0.5s cubic-bezier(.22,1,.36,1), filter 0.5s ease;
+}
+
+.music-icon:not(.playing) .note-head,
+.music-icon:not(.playing) .note-stem,
+.music-icon:not(.playing) .note-flag {
+  animation: none !important;
+  transform: translateY(0) scale(1);
+  filter: drop-shadow(0 0 0 #f0da96);
+}
+
+@media (max-width: 768px) {
+  .music-icon {
+    width: 24px;
+    height: 32px;
+    margin-left: 0.6rem;
+  }
+
+  .note-head { width: 8px; height: 8px; }
+  .note-stem { width: 1.5px; height: 20px; }
+  .note-flag { width: 10px; height: 5px; }
+  .note1.note-stem { left: 6px; }
+  .note1.note-flag { left: 6px; bottom: 23px; }
+  .note2.note-stem { left: 16px; }
+  .note2.note-flag { left: 16px; bottom: 23px; }
+}
