@@ -2,6 +2,7 @@ export default function Contact() {
   return (
     <section id="contact" className="section reveal">
       <h3 className="reveal">Contato</h3>
+      <div className="section-divider reveal"></div>
 
       <p className="reveal contact-text">
         Deixe-me saber como podemos colaborar para criar algo notável juntos.
@@ -37,7 +38,7 @@ export default function Contact() {
           <span>GitHub</span>
         </a>
       </div>
-      <br /><br /><br />
+      
     </section>
   );
 }

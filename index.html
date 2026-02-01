@@ -2,21 +2,40 @@
 <html lang="pt-BR" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dan — Portfólio</title>
-    <link rel="icon" href="/catedral.png" sizes="32x32">
+    <link rel="icon" href="/catedral.png" sizes="32x32" />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&display=swap" rel="stylesheet">
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
-    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <img src="/catedral.png" style="position: fixed; top: -12%; left: -12%; width: 124%; height: 124%; object-fit: cover; z-index: -3; pointer-events: none; opacity: 0.45; mix-blend-mode: luminosity; transform: translateY(var(--cathedral-shift)) rotate(var(--cathedral-rotate)); transform-origin: center center; transition: transform 0.25s ease-out;" />
+    <img
+      id="cathedral-bg"
+      src="/catedral.png"
+      style="
+        position: fixed;
+        top: -12%;
+        left: -12%;
+        width: 124%;
+        height: 124%;
+        object-fit: cover;
+        z-index: -3;
+        pointer-events: none;
+        opacity: 0.45;
+        mix-blend-mode: luminosity;
+        transform-origin: center center;
+        will-change: transform;
+      "
+    />
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx">
-
-
-    </script>
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

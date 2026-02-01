@@ -9,22 +9,21 @@ import initBackground from "./script/Background";
 
 export default function App() {
   useEffect(() => {
-
     const cleanup = initBackground();
-
-    return () => {
-      if (cleanup) cleanup();
-    };
+    return () => cleanup && cleanup();
   }, []);
 
   return (
     <>
       <Navbar />
-      <Hero />
-      <About />
-      <Technologies />
-      <Projects />
-      <Contact />
+      <main className="app-main"></main>
+      <main id="effects-root">
+        <Hero />
+        <About />
+        <Technologies />
+        <Projects />
+        <Contact />
+      </main>
     </>
   );
 }

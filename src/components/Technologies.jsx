@@ -17,7 +17,8 @@ export default function Technologies() {
   return (
     <section id="technologies" className="section reveal">
       <h3 className="reveal">Tecnologias</h3>
-      <br />
+      <div className="section-divider reveal"></div>
+      
 
       <ul className="technologies-list reveal">
         {techs.map((tech) => (

@@ -1,78 +1,93 @@
-
 export default function initBackgroundEffects() {
+  const bg = document.getElementById("cathedral-bg");
+  const glow = document.querySelector(".hero-glow");
+  if (!bg) return;
 
   const reveals = document.querySelectorAll(".reveal");
   const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("active");
-        } else {
-          entry.target.classList.remove("active");
-        }
-      });
+    entries => {
+      entries.forEach(entry =>
+        entry.target.classList.toggle("active", entry.isIntersecting)
+      );
     },
     { threshold: 0.15 }
   );
   reveals.forEach(el => observer.observe(el));
 
   let lastScrollY = window.scrollY;
-  let targetShift = 0,
-      currentShift = 0,
-      targetRotate = 0,
-      currentRotate = 0;
-  const ease = 0.08;
+
+  let targetShift = 0;
+  let currentShift = 0;
+
+  let targetRotate = -2;
+  let currentRotate = -2;
+
+  let targetGlowOpacity = 1;
+  let currentGlowOpacity = 1;
+
+  let targetGlowScale = 1;
+  let currentGlowScale = 1;
+
+  const ease = 0.07;
+  const glowEase = 0.08;
 
   const onScroll = () => {
-    const currentScroll = window.scrollY;
-    const delta = currentScroll - lastScrollY;
+    const scroll = window.scrollY;
+    const delta = scroll - lastScrollY;
 
-    const shift = currentScroll * 0.04;
-    const rotate = Math.max(-1.2, Math.min(1.2, delta * 0.01));
+    targetShift = scroll * 0.035;
+    targetRotate = -2 + Math.max(-0.6, Math.min(0.6, delta * 0.02));
 
-    document.body.style.setProperty("--cathedral-shift", `${shift}px`);
-    document.body.style.setProperty("--cathedral-rotate", `${rotate}deg`);
+    if (scroll > 80 && delta > 0) {
+      targetGlowOpacity = 0;
+      targetGlowScale = 0.85;
+    } else {
+      targetGlowOpacity = 1;
+      targetGlowScale = 1;
+    }
 
-    targetShift = currentScroll * 0.05;
-    targetRotate = Math.min(currentScroll * 0.002, 2);
-
-    lastScrollY = currentScroll;
+    lastScrollY = scroll;
   };
 
-  window.addEventListener("scroll", onScroll);
+  window.addEventListener("scroll", onScroll, { passive: true });
 
-  const animateBackground = () => {
+  const animate = () => {
     currentShift += (targetShift - currentShift) * ease;
     currentRotate += (targetRotate - currentRotate) * ease;
 
-    document.body.style.setProperty("--cathedral-shift", `${currentShift}px`);
-    document.body.style.setProperty("--cathedral-rotate", `${currentRotate}deg`);
+    bg.style.transform =
+      `translateY(${currentShift}px) rotate(${currentRotate}deg)`;
 
-    requestAnimationFrame(animateBackground);
-  };
-  animateBackground();
+    if (glow) {
+      currentGlowOpacity += (targetGlowOpacity - currentGlowOpacity) * glowEase;
+      currentGlowScale += (targetGlowScale - currentGlowScale) * glowEase;
 
-  let mouseX = 0, mouseY = 0;
-  const onMouseMove = (e) => {
-    mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
-    mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+      glow.style.opacity = currentGlowOpacity;
+      glow.style.transform = `scale(${currentGlowScale})`;
+    }
+
+    requestAnimationFrame(animate);
   };
-  window.addEventListener("mousemove", onMouseMove);
+  animate();
 
   const techItems = document.querySelectorAll(".tech-item");
-  const onTechMouseMove = (e) => {
+  const onTechMouseMove = e => {
     const rect = e.currentTarget.getBoundingClientRect();
     const x = ((e.clientX - rect.left) / rect.width) * 100;
     const y = ((e.clientY - rect.top) / rect.height) * 100;
     e.currentTarget.style.setProperty("--x", `${x}%`);
     e.currentTarget.style.setProperty("--y", `${y}%`);
   };
-  techItems.forEach(item => item.addEventListener("mousemove", onTechMouseMove));
+
+  techItems.forEach(item =>
+    item.addEventListener("mousemove", onTechMouseMove)
+  );
 
   return () => {
     window.removeEventListener("scroll", onScroll);
-    window.removeEventListener("mousemove", onMouseMove);
-    techItems.forEach(item => item.removeEventListener("mousemove", onTechMouseMove));
+    techItems.forEach(item =>
+      item.removeEventListener("mousemove", onTechMouseMove)
+    );
     reveals.forEach(el => observer.unobserve(el));
   };
 }
