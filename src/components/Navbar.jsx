@@ -12,13 +12,13 @@ export default function Navbar() {
     if (!audio) return;
     const step = 50;
     const volumeStep = audio.volume / (duration / step);
+
     const fade = setInterval(() => {
       if (audio.volume > volumeStep) {
         audio.volume -= volumeStep;
       } else {
-        audio.volume = 0;
+        audio.volume = 1; 
         audio.pause();
-        audio.volume = 1;
         clearInterval(fade);
       }
     }, step);
@@ -31,14 +31,17 @@ export default function Navbar() {
       fadeOutAudio(audioRef.current, 1000);
       setIsPlaying(false);
     } else {
-      audioRef.current.play();
+      audioRef.current.currentTime = 0;
+      audioRef.current.volume = 1;
+      audioRef.current.play().catch(() => {}); 
       setIsPlaying(true);
     }
   };
 
+
   useEffect(() => {
     const musicIcons = document.querySelectorAll(".music-icon");
-    musicIcons.forEach(icon => {
+    musicIcons.forEach((icon) => {
       let touchTimeout;
       const addTouchActive = () => {
         icon.classList.add("touch-active");
@@ -51,7 +54,6 @@ export default function Navbar() {
     });
   }, []);
 
-  
   return (
     <header className="navbar">
       <h1 className="logo" onClick={scrollToTop} style={{ cursor: "pointer" }}>
