@@ -4,6 +4,7 @@ import About from "./components/About";
 import Technologies from "./components/Technologies";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 import { useEffect } from "react";
 import initBackground from "./script/Background";
 
@@ -23,6 +24,7 @@ export default function App() {
         <Technologies />
         <Projects />
         <Contact />
+        <Footer />
       </main>
     </>
   );

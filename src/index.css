@@ -7,6 +7,8 @@
 
 @import './styles/sections.css';
 @import './styles/section-cards.css';
+@import './styles/navbar-nickname.css';
+@import './styles/footer.css';
 
 #effects-root {
   position: relative;

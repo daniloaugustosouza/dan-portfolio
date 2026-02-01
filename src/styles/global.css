@@ -25,41 +25,45 @@ body {
     #162235 100%
   );
 }
-
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   z-index: -2;
   pointer-events: none;
-   filter: brightness(0.7) contrast(1.15) saturate(9.9) blur(1px);
+  filter: brightness(0.7) contrast(1.15) saturate(9.9) blur(1px);
 
   background:
     radial-gradient(
       900px 600px at 15% 10%,
-      rgba(240, 218, 150, 0.18) 0%,
-      rgba(240, 218, 150, 0.12) 22%,
-      rgba(240, 218, 150, 0.07) 38%,
+      rgba(240, 218, 150, 0.25) 0%,
+      rgba(240, 218, 150, 0.18) 22%,
+      rgba(240, 218, 150, 0.12) 38%,
       transparent 65%
     ),
     radial-gradient(
       900px 600px at 85% 10%,
-      rgba(240, 218, 150, 0.18) 0%,
-      rgba(240, 218, 150, 0.12) 22%,
-      rgba(240, 218, 150, 0.07) 38%,
+      rgba(240, 218, 150, 0.25) 0%,
+      rgba(240, 218, 150, 0.18) 22%,
+      rgba(240, 218, 150, 0.12) 38%,
       transparent 65%
     );
 
-    
-
-  animation: frescoBreath 120s ease-in-out infinite alternate;
-
-  transform:
-    translateY(var(--cathedral-shift))
-    rotate(var(--cathedral-rotate));
-
-  transition: transform 0.25s ease-out;
+  animation: lightPulse 12s ease-in-out infinite alternate;
 }
+
+@keyframes lightPulse {
+  0% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 0.95;
+  }
+  100% {
+    opacity: 0.45;
+  }
+}
+
 
 body::after {
   content: "";
@@ -85,11 +89,7 @@ body::after {
 
   transform-origin: center center;
 
-/*   
-  opacity: 0.45;
-  mix-blend-mode: luminosity;
 
-  transition: transform 0.25s ease-out; */
 }
 
 

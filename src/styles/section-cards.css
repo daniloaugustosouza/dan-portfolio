@@ -211,11 +211,11 @@
 }
 
 .card h4::before {
-  content: "✠ ";
+  content: "✠";
 }
 
 .card h4::after {
-  content: " ✠";
+  content: "✠";
 }
 
 .card p {
@@ -238,18 +238,18 @@
 }
 
 @media (max-width: 768px) {
-
   .cards {
     display: flex;
     flex-direction: column;
     gap: 2rem;
   }
 
-  .card img {
-    height: 200px;
+  .card-figure {
+    height: auto;    
   }
 
- 
+  .card-figure img {
+    height: auto;       
+    max-height: 500px; 
+  }
 }
-
-
