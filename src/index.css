@@ -13,6 +13,7 @@
 @import './styles/music.css';
 @import './styles/mobile.css';
 
+
 #effects-root {
   position: relative;
   min-height: 100vh;
