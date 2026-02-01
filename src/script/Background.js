@@ -18,10 +18,7 @@ export default function initBackgroundEffects() {
 
   if (isMobile()) {
     bg.style.transform = "none";
-    if (glow) {
-      glow.style.opacity = 1;
-      glow.style.transform = "scale(1)";
-    }
+    if (glow) glow.style.display = "none";
     return () => {
       reveals.forEach(el => observer.unobserve(el));
     };
