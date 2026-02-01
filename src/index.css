@@ -10,6 +10,7 @@
 @import './styles/navbar-nickname.css';
 @import './styles/footer.css';
 @import './styles/music.css';
+@import './styles/mobile.css';
 
 #effects-root {
   position: relative;
