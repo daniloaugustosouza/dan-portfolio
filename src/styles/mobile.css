@@ -14,18 +14,20 @@
     min-height: 100vh;
   }
 
-  body::before,
-  body::after {
-    filter: blur(10px) !important; 
-    animation: subtleBackground 15s linear infinite alternate; 
-    opacity: 0.4 !important;
-  }
+body::before,
+body::after {
+  filter: blur(8px) !important; 
+  animation: subtleBackground 30s linear infinite alternate; 
+  opacity: 0.35 !important;
+}
 
-  @keyframes subtleBackground {
-    0% { transform: translate(0, 0) scale(1); }
-    50% { transform: translate(5px, 5px) scale(1.02); }
-    100% { transform: translate(0, 0) scale(1); }
-  }
+@keyframes subtleBackground {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.01); }
+  100% { transform: scale(1); }
+}
+
+
   .navbar {
     flex-direction: row;
     justify-content: space-between;
