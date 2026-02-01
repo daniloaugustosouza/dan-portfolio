@@ -3,7 +3,7 @@ export function enableMobileMusicAnimation(selector) {
 
   musicIcons.forEach(icon => {
     let touchTimeout;
-
+    
     const addTouchActive = () => {
       icon.classList.add("touch-active");
       clearTimeout(touchTimeout);

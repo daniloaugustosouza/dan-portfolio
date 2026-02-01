@@ -51,6 +51,7 @@ export default function Navbar() {
     });
   }, []);
 
+  
   return (
     <header className="navbar">
       <h1 className="logo" onClick={scrollToTop} style={{ cursor: "pointer" }}>

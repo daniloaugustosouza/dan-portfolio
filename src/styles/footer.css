@@ -16,12 +16,13 @@
   animation: footer-glow 3s ease-in-out infinite alternate;
 }
 
+
+
 @keyframes footer-glow {
   0% { box-shadow: 0 0 3px rgba(240, 218, 150, 0.1); }
   50% { box-shadow: 0 0 12px rgba(240, 218, 150, 0.25); }
   100% { box-shadow: 0 0 3px rgba(240, 218, 150, 0.1); }
 }
-
 
 
 .footer p {
