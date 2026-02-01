@@ -96,3 +96,5 @@ export default function initBackgroundEffects() {
     reveals.forEach(el => observer.unobserve(el));
   };
 }
+
+
