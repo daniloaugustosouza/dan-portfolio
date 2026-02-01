@@ -66,6 +66,7 @@
   filter: drop-shadow(0 0 0 #f0da96);
 }
 
+
 @media (max-width: 768px) {
   .music-icon {
     width: 24px;
@@ -81,3 +82,4 @@
   .note2.note-stem { left: 16px; }
   .note2.note-flag { left: 16px; bottom: 23px; }
 }
+

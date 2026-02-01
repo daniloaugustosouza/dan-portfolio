@@ -8,11 +8,27 @@ export default function Navbar() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const fadeOutAudio = (audio, duration = 1000) => {
+    if (!audio) return;
+    const step = 50; 
+    const volumeStep = audio.volume / (duration / step);
+    const fade = setInterval(() => {
+      if (audio.volume > volumeStep) {
+        audio.volume -= volumeStep;
+      } else {
+        audio.volume = 0;
+        audio.pause();
+        audio.volume = 1; 
+        clearInterval(fade);
+      }
+    }, step);
+  };
+
   const toggleMusic = () => {
     if (!audioRef.current) return;
 
     if (isPlaying) {
-      audioRef.current.pause();
+      fadeOutAudio(audioRef.current, 1000); 
       setIsPlaying(false);
     } else {
       audioRef.current.play();
@@ -33,24 +49,22 @@ export default function Navbar() {
         <a href="#contact">Contato</a>
       </nav>
 
-      {/* Ícone de música */}
-    <div
-  className={`music-icon ${isPlaying ? "playing" : ""}`}
-  onClick={toggleMusic}
-  title={isPlaying ? "pausar música" : "tocar música"}
->
-  <div className="note-head note1"></div>
-  <div className="note-stem note1"></div>
-  <div className="note-flag note1"></div>
-  
-  <div className="note-head note2"></div>
-  <div className="note-stem note2"></div>
-  <div className="note-flag note2"></div>
-</div>
+      <div
+        className={`music-icon ${isPlaying ? "playing" : ""}`}
+        onClick={toggleMusic}
+        title={isPlaying ? "pausar música" : "tocar música"}
+      >
+        <div className="note-head note1"></div>
+        <div className="note-stem note1"></div>
+        <div className="note-flag note1"></div>
+        
+        <div className="note-head note2"></div>
+        <div className="note-stem note2"></div>
+        <div className="note-flag note2"></div>
+      </div>
 
-      {/* Áudio */}
       <audio ref={audioRef} loop>
-        <source src="/soundtrack.mp3" type="audio/mpeg" />
+        <source src="./public/Eight Mountains by Savfk.mp3" type="audio/mpeg" />
         Seu navegador não suporta áudio.
       </audio>
     </header>
