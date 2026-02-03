@@ -118,37 +118,27 @@ body::after {
 }
 
 @media (max-width: 768px) {
-  html, body {
-    overscroll-behavior-y: none;
-    -webkit-overflow-scrolling: touch;
+ @media (max-width: 768px) {
+  html {
+    background: #0f1722;
+  }
+
+  body {
+    background: linear-gradient(180deg, #0f1722 0%, #121c2a 45%, #162235 100%);
+  }
+
+  body::before,
+  body::after {
+    content: none !important;
+    background: none !important;
+    animation: none !important;
+    filter: none !important;
+    transform: none !important;
   }
 
   #cathedral-bg {
-    contain: layout paint style;
-    content-visibility: auto;
-    contain-intrinsic-size: 1000px 1000px;
-    will-change: auto;
-    transform: translate3d(0,0,0);
-    backface-visibility: hidden;
+    display: none !important;
   }
+}
 
-  .hero,
-  .section,
-  section,
-  main {
-    content-visibility: auto;
-    contain: layout paint;
-    contain-intrinsic-size: 800px;
-  }
-
-  .cards,
-  .card,
-  .card-figure,
-  .card-base {
-    contain: layout paint style;
-  }
-
-  img {
-    content-visibility: auto;
-  }
 }
