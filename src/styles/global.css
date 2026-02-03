@@ -116,3 +116,39 @@ body::after {
   transform: translateY(0);
   filter: blur(0);
 }
+
+@media (max-width: 768px) {
+  html, body {
+    overscroll-behavior-y: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  #cathedral-bg {
+    contain: layout paint style;
+    content-visibility: auto;
+    contain-intrinsic-size: 1000px 1000px;
+    will-change: auto;
+    transform: translate3d(0,0,0);
+    backface-visibility: hidden;
+  }
+
+  .hero,
+  .section,
+  section,
+  main {
+    content-visibility: auto;
+    contain: layout paint;
+    contain-intrinsic-size: 800px;
+  }
+
+  .cards,
+  .card,
+  .card-figure,
+  .card-base {
+    contain: layout paint style;
+  }
+
+  img {
+    content-visibility: auto;
+  }
+}
