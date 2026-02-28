@@ -1,6 +1,6 @@
 import { createParticle, updateParticle, drawParticle, rand } from "./Particles.js";
-import { initCards } from "./cards.js";
-import { initTechItems } from "./techItems.js";
+import { initCards } from "./Cards.js";
+import { initTechItems } from "./TechItems.js";
 
 export default function initBackground() {
   const isMobile = window.matchMedia("(max-width: 768px)").matches;
