@@ -75,7 +75,7 @@ export default function Navbar() {
         <div className="note-flag note2"></div>
       </div>
       <audio ref={audioRef} loop>
-        <source src="/eight-mountains-by-savfk.mp3" type="audio/mpeg" />
+        <source src="/No-copyright-music-GameBeats.mp3" type="audio/mpeg" />
         Seu navegador não suporta áudio.
       </audio>
     </header>
