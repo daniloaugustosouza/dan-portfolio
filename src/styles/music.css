@@ -1,85 +1,92 @@
 .music-icon {
   position: relative;
-  width: 28px;  
-  height: 40px;
+  width: 26px;
+  height: 36px;
   cursor: pointer;
-  display: inline-block;
-  margin-left: 1rem;
-  transform-origin: center bottom;
-  transition: transform 0.5s cubic-bezier(.22,1,.36,1), filter 0.5s ease;
+  display: inline-flex;
+  align-items: flex-end;
+  margin-left: 1.6rem;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), filter 0.4s ease;
   touch-action: manipulation;
+  flex-shrink: 0;
 }
 
-.note-head,
-.note-stem,
+.note-head, .note-stem, .note-flag {
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.note-head {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  background: var(--re-offwhite);
+  border-radius: 50%;
+  bottom: 0;
+}
+
+.note-stem {
+  position: absolute;
+  width: 2px;
+  height: 22px;
+  background: var(--re-offwhite);
+}
+
 .note-flag {
-  transition: transform 0.4s ease-in-out, filter 0.4s ease-in-out;
+  position: absolute;
+  width: 10px;
+  height: 5px;
+  border-top: 1.5px solid var(--re-offwhite);
+  border-right: 1.5px solid var(--re-offwhite);
+  transform: rotate(45deg);
+  transform-origin: bottom left;
+  opacity: 0.75;
 }
-
-.note-head { position: absolute; width: 10px; height: 10px; background: #f6e9bf; border-radius: 50%; bottom: 0; }
-.note-stem { position: absolute; width: 2px; height: 25px; background: #f6e9bf; }
-.note-flag { position: absolute; width: 12px; height: 6px; border-top: 2px solid #f6e9bf; border-right: 2px solid #f6e9bf; transform: rotate(45deg); transform-origin: bottom left; opacity: 0.8; }
 
 .note1 { left: 0; }
-.note1.note-stem { left: 8px; bottom: 5px; }
-.note1.note-flag { left: 8px; bottom: 28px; }
+.note1.note-stem { left: 7px; bottom: 4px; }
+.note1.note-flag { left: 7px; bottom: 24px; }
 
-.note2 { left: 12px; }
-.note2.note-stem { left: 20px; bottom: 5px; }
-.note2.note-flag { left: 20px; bottom: 28px; }
+.note2 { left: 11px; }
+.note2.note-stem { left: 18px; bottom: 4px; }
+.note2.note-flag { left: 18px; bottom: 24px; }
 
+/* Playing state — red glow */
 .music-icon.playing .note-head,
 .music-icon.playing .note-stem,
 .music-icon.playing .note-flag {
-  animation: music-breath 2s ease-in-out infinite;
+  animation: musicPulse 2.2s ease-in-out infinite;
 }
 
-@keyframes music-breath {
-  0%   { transform: translateY(0) scale(1); filter: drop-shadow(0 0 4px #f0da96); }
-  25%  { transform: translateY(-1px) scale(1.05); filter: drop-shadow(0 0 6px #f0da96); }
-  50%  { transform: translateY(0) scale(1); filter: drop-shadow(0 0 8px #f0da96); }
-  75%  { transform: translateY(1px) scale(1.05); filter: drop-shadow(0 0 6px #f0da96); }
-  100% { transform: translateY(0) scale(1); filter: drop-shadow(0 0 4px #f0da96); }
+@keyframes musicPulse {
+  0%   { filter: drop-shadow(0 0 3px var(--re-red)); }
+  50%  { filter: drop-shadow(0 0 8px var(--re-red-bright)); transform: translateY(-1px) scale(1.05); }
+  100% { filter: drop-shadow(0 0 3px var(--re-red)); }
 }
 
 .music-icon:hover,
 .music-icon:active {
-  transform: scale(1.25) rotate(-5deg);
-}
-
-.music-icon:hover .note-head,
-.music-icon:hover .note-stem,
-.music-icon:hover .note-flag,
-.music-icon:active .note-head,
-.music-icon:active .note-stem,
-.music-icon:active .note-flag {
-  transform: translateY(-2px) scale(1.1);
-  filter: drop-shadow(0 0 10px #f0da96);
-  transition: transform 0.5s cubic-bezier(.22,1,.36,1), filter 0.5s ease;
+  transform: scale(1.2) rotate(-5deg);
+  filter: drop-shadow(0 0 6px var(--re-red-glow));
 }
 
 .music-icon:not(.playing) .note-head,
 .music-icon:not(.playing) .note-stem,
 .music-icon:not(.playing) .note-flag {
-  animation: none !important;
-  transform: translateY(0) scale(1);
-  filter: drop-shadow(0 0 0 #f0da96);
+  animation: none;
+  filter: none;
 }
-
 
 @media (max-width: 768px) {
   .music-icon {
-    width: 24px;
-    height: 32px;
-    margin-left: 0.6rem;
+    width: 22px;
+    height: 30px;
+    margin-left: 0.8rem;
   }
-
-  .note-head { width: 8px; height: 8px; }
-  .note-stem { width: 1.5px; height: 20px; }
-  .note-flag { width: 10px; height: 5px; }
+  .note-head { width: 7px; height: 7px; }
+  .note-stem { height: 18px; }
   .note1.note-stem { left: 6px; }
-  .note1.note-flag { left: 6px; bottom: 23px; }
-  .note2.note-stem { left: 16px; }
-  .note2.note-flag { left: 16px; bottom: 23px; }
+  .note1.note-flag { left: 6px; bottom: 20px; }
+  .note2 { left: 9px; }
+  .note2.note-stem { left: 15px; }
+  .note2.note-flag { left: 15px; bottom: 20px; }
 }
-

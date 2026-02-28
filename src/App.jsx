@@ -7,10 +7,14 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import { useEffect } from "react";
 import initBackground from "./script/Background";
+import "./script/Cards";
+import "./script/TechItems";
+import "./script/Particles";
 
 export default function App() {
   useEffect(() => {
     const cleanup = initBackground();
+    
     return () => cleanup && cleanup();
   }, []);
 

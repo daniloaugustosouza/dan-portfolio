@@ -1,26 +1,17 @@
-@import './styles/global.css';
-@import './styles/navbar.css';
-@import './styles/hero.css';
-@import './styles/buttons.css';
-@import './styles/sections.css';
-@import './styles/section-cards.css';
-@import './styles/navbar-nickname.css';
-@import './styles/footer.css';
-@import './styles/music.css';
-@import './styles/mobile.css';
-
+@import "./styles/global.css";
+@import "./styles/re-background.css";
+@import "./styles/navbar.css";
+@import "./styles/hero.css";
+@import "./styles/buttons.css";
+@import "./styles/sections.css";
+@import "./styles/section-cards.css";
+@import "./styles/navbar-nickname.css";
+@import "./styles/footer.css";
+@import "./styles/music.css";
+@import "./styles/mobile.css";
 
 #effects-root {
   position: relative;
   min-height: 100vh;
-  transform-style: preserve-3d;
-  will-change: transform;
-}
-#background-layer {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  will-change: transform;
-  transform-style: preserve-3d;
 }
 

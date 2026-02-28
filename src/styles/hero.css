@@ -1,168 +1,185 @@
-
 .hero {
-  height: 100vh;
+  position: relative;
+  min-height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 0 2rem;
-}
-
-.hero-content h2 {
-  font-family: "Special Elite", monospace;
-  letter-spacing: 0.06em;
-  color: #e9dfb8;
-}
-
-.hero-content p {
-  margin-top: 1.5rem;
-  font-size: 1.15rem;
-  color: #e0d2b5;
-}
-
-.hero {
-  min-height: 100vh;
-  display: grid;
-  place-items: center;
-  position: relative;
+  justify-content: flex-start;
+  padding: 0 6rem;
   overflow: hidden;
-  text-align: center;
 }
-.hero-glow {
+
+
+
+/* Vertical blue accent bar */
+.hero::after {
+  content: "";
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 520px;
-  height: 520px;
-  transform: translate(-50%, -50%);
-  z-index: 0;
-  pointer-events: none;
-
-  background:
-    radial-gradient(
-      circle at center,
-      rgba(240, 218, 150, 0.18) 0%,
-      rgba(240, 218, 150, 0.12) 22%,
-      rgba(240, 218, 150, 0.07) 38%,
-      rgba(240, 218, 150, 0.03) 52%,
-      transparent 65%
-    );
-
-  filter: blur(70px);
-  opacity: 0.9;
-
-  border-radius: 50%;
-  animation: glow-wave 14s ease-in-out infinite alternate;
-
-  transition:
-    opacity 0.9s cubic-bezier(.22,1,.36,1),
-    transform 1.1s cubic-bezier(.22,1,.36,1);
-}
-
-
-@keyframes glow-wave {
-  0% {
-    border-radius: 50%;
-    transform: translate(-50%, -50%) scale(1);
-  }
-
-  50% {
-    border-radius: 52% 48% 50% 50% / 50% 52% 48% 50%;
-    transform: translate(-50%, -50%) scale(1.03);
-  }
-
-  100% {
-    border-radius: 48% 52% 50% 50% / 52% 48% 52% 48%;
-    transform: translate(-50%, -50%) scale(1.06);
-  }
-}
-
-
-.hero-content {
-  position: relative;
+  left: 4.5rem;
+  top: 20%;
+  height: 60%;
+  width: 2px;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    var(--re-red) 30%,
+    var(--re-red) 70%,
+    transparent
+  );
+  box-shadow: 0 0 20px var(--re-red-glow);
   z-index: 1;
-  max-width: 720px;
-  padding: 2rem;
+}
+
+.hero-glow {
+  display: none; /* replaced by background */
+}
+
+.hero-content { 
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  padding-left: 2rem;
+}
+
+/* Eyebrow label */
+.hero-content::before {
+  content: "PORTFOLIO";
+  display: block;
+  font-family: var(--font-sub);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.4em;
+  color: var(--re-red);
+  margin-bottom: 1.4rem;
+  text-transform: uppercase;
 }
 
 .hero-title {
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
-  font-family: "Special Elite", monospace;
-  letter-spacing: 0.18em;
-  color: #f0da96;
+  gap: 0.2rem;
+  font-family: var(--font-title);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.hero-title .nickname-wrapper {
+  display: block;
 }
 
 .hero-title .nickname {
-  font-size: 1.7rem;
-  opacity: 0.8;
+  font-size: 1.2rem;
+  letter-spacing: 0.5em;
+  color: var(--re-grey);
+  font-family: var(--font-sub);
+  font-weight: 300;
+  text-transform: uppercase;
 }
 
 .hero-title .real-name {
-  font-size: 2.8rem;
-  letter-spacing: 0.22em;
+  font-size: 5.5rem;
+  color: var(--re-white);
+  line-height: 0.95;
+
+}
+
+/* Glitch effect on name */
+.glitch-name span {
+  display: inline-block;
+  animation: letterGlitch 3s infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.glitch-name span:nth-child(odd) {
+  animation-duration: 2.6s;
+}
+
+.glitch-name span:nth-child(even) {
+  animation-duration: 3.4s;
+}
+
+.glitch-name span:nth-child(3n) {
+  animation-delay: .4s;
+}
+
+.glitch-name span:nth-child(4n) {
+  animation-delay: .8s;
+}
+
+@keyframes letterGlitch {
+
+  0%, 85%, 100% {
+    opacity: 1;
+    transform: translate3d(0,0,0);
+    clip-path: inset(0 0 0 0);
+  }
+
+  86% {
+    opacity: 0;
+  }
+
+  87% {
+    opacity: 1;
+    transform: translate3d(-4px,0,0);
+    clip-path: polygon(0 20%,100% 20%,100% 45%,0 45%);
+    color: var(--re-red-bright);
+  }
+
+  88% {
+    transform: translate3d(4px,0,0);
+    clip-path: polygon(0 60%,100% 60%,100% 80%,0 80%);
+  }
+
+  89% {
+    opacity: .3;
+  }
+
+  90% {
+    opacity: 1;
+    transform: translate3d(0,0,0);
+    clip-path: inset(0 0 0 0);
+    color: var(--re-white);
+  }
 }
 
 .hero-subtitle {
-  margin-top: 1.4rem;
-  font-size: 0.95rem;
-  letter-spacing: 0.28em;
+  margin-top: 1.6rem;
+  font-family: var(--font-sub);
+  font-size: 0.85rem;
+  font-weight: 300;
+  letter-spacing: 0.35em;
   text-transform: uppercase;
-  color: rgba(230, 223, 200, 0.75);
+  color: var(--re-grey);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.hero-subtitle::before {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 1px;
+  background: var(--re-red);
+  box-shadow: 0 0 8px var(--re-red-glow);
 }
 
 .hero-buttons {
-  margin-top: 3.2rem;
+  margin-top: 3rem;
+  display: flex;
+  gap: 1.2rem;
 }
-
-.btn.gold {
-  padding: 0.9rem 2.6rem;
-  border-radius: 999px;
-  font-family: monospace;
-  font-size: 0.90rem;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: #1b2430;
-  background: linear-gradient(
-    135deg,
-    #f0da96,
-    #d6b86a
-  );
-  border: none;
-  cursor: pointer;
-  box-shadow:
-    0 12px 30px rgba(0,0,0,0.4),
-    inset 0 1px 0 rgba(255,255,255,0.35);
-  transition:
-    transform 0.4s cubic-bezier(.22,1,.36,1),
-    box-shadow 0.4s ease;
-}
-
-.btn.gold:hover {
-  transform: translateY(-3px);
-  box-shadow:
-    0 18px 50px rgba(0,0,0,0.6),
-    inset 0 1px 0 rgba(255,255,255,0.45);
-}
-
-
 
 @media (max-width: 768px) {
   .hero {
-    padding: 6rem 1.2rem;
-    min-height: 90vh;
+    padding: 0 1.5rem;
+    justify-content: center;
+    text-align: center;
   }
-
-  .hero-content h2 {
-    font-size: 2.2rem;
-  }
-
-  .hero-content p {
-    font-size: 1rem;
-  }
-
-  .hero-buttons {
-    margin-top: 2rem;
-  }
+  .hero::after { display: none; }
+  .hero-content { padding-left: 0; }
+  .hero-content::before { text-align: center; }
+  .hero-title .real-name { font-size: 3.2rem; }
+  .hero-subtitle { justify-content: center; }
+  .hero-buttons { justify-content: center; }
 }

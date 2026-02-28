@@ -18,8 +18,6 @@ export default function Technologies() {
     <section id="technologies" className="section reveal">
       <h3 className="reveal">Tecnologias</h3>
       <div className="section-divider reveal"></div>
-      
-
       <ul className="technologies-list reveal">
         {techs.map((tech) => (
           <li key={tech} className="tech-item">

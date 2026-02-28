@@ -1,72 +1,69 @@
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  background: rgba(15, 23, 34, 0.65);
-  backdrop-filter: blur(100px);
-  border-bottom: 1px solid rgba(255,255,255,0.15);
-  overflow: hidden;
-  z-index: 100;
- animation: nav-glow 3s ease-in-out infinite alternate;
-}
-
-@keyframes nav-glow {
-  0% { box-shadow: 0 0 3px rgba(240, 218, 150, 0.1); }
-  50% { box-shadow: 0 0 12px rgba(240, 218, 150, 0.25); }
-  100% { box-shadow: 0 0 3px rgba(240, 218, 150, 0.1); }
-}
-
 .logo {
   position: relative;
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #f6e9bf;
-  font-family: "Special Elite", monospace;
-  letter-spacing: 0.08em;
-  padding: 0.3rem 0.8rem;
   display: inline-block;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #fff;
+  transition: transform 0.4s ease, color 0.4s ease, text-shadow 0.4s ease;
 }
 
 .logo::before,
 .logo::after {
-  content: "▲";
-  font-size: 0.9rem;
-  color: #d6b86a;
+  font-size: 0.7rem;
+  color: inherit;
   position: absolute;
-  top: -0.6rem;
+  transition: transform 0.6s ease, color 0.4s ease, text-shadow 0.4s ease;
 }
 
-.logo::before { left: -0.6rem; transform: rotate(-20deg); }
-.logo::after { right: -0.6rem; transform: rotate(20deg); }
+.logo::before {
+  content: "▲";
+  top: -0.6rem;
+  left: -0.6rem;
+  transform: rotate(-20deg);
+  animation: floatUp 3.5s ease-in-out infinite alternate;
+}
 
 .logo::after {
   content: "▼";
-  font-size: 0.9rem;
-  top: auto;
   bottom: -0.6rem;
-  color: #d6b86a;
-  left: 50%;
-  transform: translateX(-50%);
+  right: -0.6rem;
+  transform: rotate(10deg);
+  animation: floatDown 3.5s ease-in-out infinite alternate;
 }
 
 .logo:hover {
-  color: #f0da96;
-  transform: scale(1.05);
-  transition: all 0.3s ease;
+  color: #3d8bff;
+  text-shadow: 0 0 18px rgba(61, 139, 255, 0.7);
+  transform: scale(1.08);
 }
 
-.navbar nav a {
-  margin-left: 1.5rem;
-  text-decoration: none;
-  color: #f6e9bf;
-  font-weight: 500;
-  transition: color 0.3s ease;
+.logo:hover::before {
+  transform: rotate(-40deg) scale(1.2);
+  color: #00aaff;
+  text-shadow: 0 0 12px rgba(0, 170, 255, 0.6);
 }
 
-.navbar nav a:hover {
-  color: #f0da96;
+.logo:hover::after {
+  transform: rotate(30deg) scale(1.2);
+  color: #00aaff;
+  text-shadow: 0 0 12px rgba(0, 170, 255, 0.6);
+}
+
+@keyframes floatUp {
+  0%   { transform: translateY(0) rotate(-20deg); }
+  100% { transform: translateY(-6px) rotate(-25deg); }
+}
+
+@keyframes floatDown {
+  0%   { transform: translateY(0) rotate(10deg); }
+  100% { transform: translateY(6px) rotate(15deg); }
+}
+
+@keyframes logoPulse {
+  0%, 100% { text-shadow: 0 0 6px rgba(61, 139, 255, 0.4); }
+  50%      { text-shadow: 0 0 18px rgba(61, 139, 255, 0.8); }
+}
+
+.logo {
+  animation: logoPulse 4s ease-in-out infinite;
 }

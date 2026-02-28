@@ -1,0 +1,133 @@
+
+/* Dark vignette overlay */
+#effects-root {
+  position: relative;
+  min-height: 100vh;
+  z-index: 1;
+}
+
+/* Blue corner vignette */
+#effects-root::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse 120% 80% at 50% 0%,
+      transparent 40%,
+      rgba(0, 140, 255, 0.04) 70%,
+      rgba(0, 140, 255, 0.08) 100%
+    ),
+    radial-gradient(
+      ellipse 80% 60% at 0% 100%,
+      rgba(0, 170, 255, 0.06) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 80% 60% at 100% 100%,
+      rgba(0, 170, 255, 0.06) 0%,
+      transparent 60%
+    );
+  animation: atmospherePulse 12s ease-in-out infinite alternate;
+}
+
+@keyframes atmospherePulse {
+  0%   { opacity: 0.6; }
+  50%  { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+/* Horizontal red line at very top of page */
+body > * + * {
+  position: relative;
+}
+
+
+
+/* Blue section separator */
+.re-separator {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 140, 255, 0.4) 30%,
+    rgba(0, 170, 255, 0.6) 50%,
+    rgba(0, 140, 255, 0.4) 70%,
+    transparent 100%
+  );
+  margin: 0;
+}
+
+/* Animated red border top on hero */
+.hero {
+    border-top: 1px solid rgba(0, 140, 255, 0.25);
+}
+
+/* Particle canvas sits behind everything */
+#re-particles {
+  z-index: 0;
+}
+
+/* Ensure content is above particles */
+.navbar,
+#effects-root > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* ── Glitch keyframes (used in hero.css) ── */
+@keyframes glitchClip1 {
+  0%, 100% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); transform: none; }
+  92% { 
+    clip-path: polygon(0 20%, 100% 20%, 100% 35%, 0 35%);
+    transform: translateX(-4px);
+    color: #3d8bff;
+  }
+  93% { 
+    clip-path: polygon(0 55%, 100% 55%, 100% 70%, 0 70%);
+    transform: translateX(4px);
+  }
+  94% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); transform: none; }
+}
+
+
+/* ── Typewriter cursor blink ── */
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ── Red shimmer on section titles ── */
+.section h3 {
+  position: relative;
+}
+
+.section h3::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--re-red);
+  opacity: 0;
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  animation: titleGlitch 10s ease-in-out infinite;
+}
+
+@keyframes titleGlitch {
+  0%, 88%, 100% { opacity: 0; clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); }
+  89% {
+    opacity: 0.7;
+    clip-path: polygon(0 30%, 100% 30%, 100% 50%, 0 50%);
+    transform: translateX(-2px);
+  }
+  90% {
+    opacity: 0;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+}
+
+
+
