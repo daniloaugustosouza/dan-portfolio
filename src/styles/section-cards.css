@@ -108,23 +108,43 @@
 
 @media (max-width: 768px) {
   .cards {
-    grid-template-columns: 1fr;
+    display: flex;
     gap: 1.4rem;
-    perspective: none;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
   }
 
   .card {
-    transform: none !important;
-    transition: none;
+    flex: 0 0 80%;
+    scroll-snap-align: start;
+    transform: translateY(20px) scale(0.95);
+    opacity: 0;
+    transition: transform 0.35s ease, opacity 0.35s ease, box-shadow 0.35s ease;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
   }
 
+  .card.active {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
 
+  .card:active {
+    transform: scale(0.97);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  }
 
   .card-figure {
     aspect-ratio: 4 / 3;
+    transition: transform 0.5s ease;
   }
 
+  .card-figure img {
+    transition: transform 0.5s ease, filter 0.5s ease;
+  }
 
-
-  
+  .cards::-webkit-scrollbar {
+    display: none;
+  }
 }

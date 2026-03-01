@@ -1,5 +1,16 @@
 export function initCards() {
   const cards = document.querySelectorAll(".card");
+  const mobileCards = document.querySelectorAll('.card');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active');
+    }
+  });
+}, { threshold: 0.5 });
+
+mobileCards.forEach(card => observer.observe(card));
 
   cards.forEach(card => {
     const handleMove = (e) => {

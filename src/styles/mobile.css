@@ -55,8 +55,11 @@
     justify-content: center;
   }
 
-  /* VIDEO / IMAGEM PRINCIPAL */
-  #ashley1,
+
+  #ashley1{
+    display: none;
+  }
+
   #ashley-franja {
     position: relative;
     left: auto;
@@ -69,12 +72,14 @@
     opacity: 0.8;
   }
 
+
+  
+
   #ashley-franja {
 
     bottom: -115px;
   }
 
-  /* IMAGEM ABOUT */
   #ashley-about {
     position: relative;
     left: auto;
