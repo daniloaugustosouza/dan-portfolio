@@ -35,7 +35,7 @@ export default function Contact() {
 
       <img
         id="ashley-franja"
-        src="public/ashley-franja.png"
+        src="/ashley-franja.png"
         alt="Ashley Resident Evil"
       />
 

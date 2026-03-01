@@ -13,7 +13,7 @@ export default function About() {
 
 
       <div>
-        <img id="ashley-about" src="public/ashley-parada.png" alt="Ashley Resident Evil pose" />
+        <img id="ashley-about" src="/ashley-parada.png" alt="Ashley Resident Evil pose" />
       </div>
 
     </section>
