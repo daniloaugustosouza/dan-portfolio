@@ -3,6 +3,8 @@ import { initCards } from "./Cards.js";
 import { initTechItems } from "./TechItems.js";
 
 export default function initBackground() {
+
+
   const isMobile = window.matchMedia("(max-width: 768px)").matches;
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -16,6 +18,7 @@ export default function initBackground() {
     { threshold: 0.12 }
   );
   reveals.forEach((el) => revealObserver.observe(el));
+  
 
   if (reducedMotion) {
     reveals.forEach((el) => el.classList.add("active"));
@@ -27,7 +30,11 @@ export default function initBackground() {
 
   let canvas, ctx, particles = [], animId;
 
-  if (!isMobile) {
+ if (!isMobile) {
+
+  canvas = document.getElementById("re-particles");
+
+  if (!canvas) {
     canvas = document.createElement("canvas");
     canvas.id = "re-particles";
     Object.assign(canvas.style, {
@@ -40,6 +47,7 @@ export default function initBackground() {
       zIndex: "0",
     });
     document.body.appendChild(canvas);
+  }
     ctx = canvas.getContext("2d");
 
     const resize = () => {
@@ -49,7 +57,7 @@ export default function initBackground() {
     resize();
     window.addEventListener("resize", resize);
 
-    const COUNT = isMobile ? 50 : 300;
+    const COUNT = isMobile ? 50 : 150;
     for (let i = 0; i < COUNT; i++) {
       particles.push(createParticle());
     }
@@ -67,4 +75,5 @@ export default function initBackground() {
 
   initCards();
   initTechItems();
+  
 }

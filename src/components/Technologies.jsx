@@ -15,7 +15,7 @@ const techs = [
 
 export default function Technologies() {
   return (
-    <section id="technologies" className="section reveal">
+    <section id="technologies" className="section reveal technologies-section">
       <h3 className="reveal">Tecnologias</h3>
       <div className="section-divider reveal"></div>
       <ul className="technologies-list reveal">
@@ -25,6 +25,9 @@ export default function Technologies() {
           </li>
         ))}
       </ul>
+
+
+      
     </section>
   );
 }

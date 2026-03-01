@@ -1,22 +1,22 @@
 
 
 :root {
-  --re-black:        #080c14;
-  --re-dark:         #0e1622;
-  --re-surface:      #141c2b;
-  --re-surface2:     #1a2436;
+  --re-black:        #0b0c10;      /* fundo bem escuro */
+  --re-dark:         #1a1c23;      /* escuro frio para seções */
+  --re-surface:      #23252d;      /* superfícies principais */
+  --re-surface2:     #2d2f38;      /* cards, highlights */
 
-  --re-red:          #0066ff;          /* azul principal */
-  --re-red-bright:   #3d8bff;          /* azul claro */
-  --re-red-dim:      #003a99;          /* azul escuro */
-  --re-red-glow:     rgba(0, 102, 255, 0.45);
+  --re-red:          #ff6f3c;      /* laranja principal */
+  --re-red-bright:   #ff9b6a;      /* laranja claro e quente */
+  --re-red-dim:      #b34820;      /* laranja escuro mais profundo */
+  --re-red-glow:     rgba(255,111,60,0.45); /* brilho laranja suave */
 
-  --re-white:        #f0f4ff;
-  --re-offwhite:     #d8e2ff;
-  --re-grey:         #8892a8;
-  --re-grey-dim:     #4a5568;
+  --re-white:        #f2f0ec;      /* branco quente */
+  --re-offwhite:     #e6dfd6;      /* textos secundários */
+  --re-grey:         #9a8f85;      /* cinza quente */
+  --re-grey-dim:     #5c5349;      /* cinza escuro de detalhes */
 
-  --re-border:       rgba(0, 102, 255, 0.3);
+  --re-border:       rgba(255,111,60,0.3);
   --re-border-dim:   rgba(255, 255, 255, 0.06);
 
   --nav-h:           64px;
@@ -56,20 +56,6 @@ body::before {
 }
 
 /* Scan lines */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 9997;
-  pointer-events: none;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 1px,
-    rgba(0, 0, 0, 0.035) 2px,
-    rgba(0, 0, 0, 0.035) 4px
-  );
-}
 
 /* Reveal */
 .reveal {

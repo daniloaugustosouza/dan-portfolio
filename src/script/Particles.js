@@ -3,7 +3,7 @@ export function rand(min, max) {
 }
 
 export function createParticle() {
-  const isBlue = Math.random() < 0.15;
+  const isOrange = Math.random() < 0.18;
 
   return {
     x: rand(0, window.innerWidth),
@@ -14,7 +14,7 @@ export function createParticle() {
     opacity: rand(0.05, 0.35),
     opacityTarget: rand(0.05, 0.35),
     opacitySpeed: rand(0.003, 0.012),
-    isBlue
+    isOrange
   };
 }
 
@@ -36,8 +36,9 @@ export function updateParticle(p) {
 }
 
 export function drawParticle(p, ctx) {
-  if (p.isBlue) {
-    ctx.fillStyle = `rgba(0, 120, 255, ${p.opacity})`;
+  if (p.isOrange) {
+      const glow = 90 + Math.random() * 40;
+  ctx.fillStyle = `rgba(255, ${glow}, 40, ${p.opacity})`;
   } else {
     const brightness = 150;
     ctx.fillStyle = `rgba(${brightness}, ${brightness}, ${brightness}, ${p.opacity})`;

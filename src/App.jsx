@@ -21,8 +21,7 @@ export default function App() {
   return (
     <>
       <Navbar />
-      <main className="app-main"></main>
-      <main id="effects-root">
+      <main id="effects-root" className="app-main">
         <Hero />
         <About />
         <Technologies />

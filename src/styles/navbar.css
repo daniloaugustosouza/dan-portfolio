@@ -20,7 +20,6 @@
   overflow: hidden;
 }
 
-
 .navbar::before {
   content: "";
   position: absolute;
@@ -28,7 +27,7 @@
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(15, 51, 209, 0.075) 50%,
+    rgba(255, 111, 60, 0.08) 50%,
     transparent 100%
   );
   transform: translateX(-120%);
@@ -42,7 +41,6 @@
   100% { transform: translateX(120%); }
 }
 
-/* Bottom blue glow pulse */
 .navbar::after {
   content: "";
   position: absolute;
@@ -56,7 +54,7 @@
 
 @keyframes navGlow {
   0%   { opacity: 0.3; box-shadow: none; }
-  100% { opacity: 1;   box-shadow: 0 0 18px var(--re-red-glow); }
+  100% { opacity: 1; box-shadow: 0 0 18px var(--re-red-glow); }
 }
 
 .logo {
@@ -102,10 +100,10 @@
   width: 0;
   height: 2px;
   background: linear-gradient(
-        90deg,
-    rgba(0, 170, 255, 0.2),
-    rgb(0, 140, 255),
-    rgba(0, 170, 255, 0.2)
+    90deg,
+    rgba(255, 140, 60, 0.2),
+    rgb(255, 111, 60),
+    rgba(255, 140, 60, 0.2)
   );
   transition: width 0.45s cubic-bezier(.22,1,.36,1);
 }
@@ -121,7 +119,6 @@
 .navbar nav a:hover::before {
   opacity: 1;
   transform: translate(-50%, -50%) scale(1);
-  
 }
 
 @media (max-width: 768px) {

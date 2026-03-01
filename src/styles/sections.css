@@ -22,8 +22,8 @@
   width: 80px;
   height: 2px;
   margin: 1rem 0 3rem;
-  background: #1e90ff;
-  box-shadow: 0 0 14px rgba(30, 144, 255, 0.6);
+  background: #ff6f3c;
+  box-shadow: 0 0 14px rgba(255, 111, 60, 0.6);
   position: relative;
   transform-origin: left center;
   transform: scaleX(0);
@@ -46,9 +46,9 @@
   transform: translateY(-50%);
   width: 6px;
   height: 6px;
-  background: #1e90ff;
+  background: #ff6f3c;
   border-radius: 50%;
-  box-shadow: 0 0 8px rgba(30, 144, 255, 0.6);
+  box-shadow: 0 0 8px rgba(255, 111, 60, 0.6);
 }
 
 .section p {
@@ -58,6 +58,15 @@
   max-width: 680px;
   color: var(--re-offwhite);
   letter-spacing: 0.01em;
+}
+
+#about{
+  margin-top: 1rem;
+}
+
+
+#technologies {
+  margin-top: 19rem;
 }
 
 .technologies-list {
@@ -97,7 +106,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  border: 1px solid rgba(30,144,255,0.4);
+  border: 1px solid rgba(255,111,60,0.4);
   opacity: 0;
   transition: opacity .3s ease;
 }
@@ -109,7 +118,7 @@
   inset: 0;
   background: radial-gradient(
     circle at var(--x, 50%) var(--y, 50%),
-    rgba(30,144,255,0.35),
+    rgba(255,111,60,0.35),
     transparent 60%
   );
   opacity: 0;
@@ -120,11 +129,12 @@
 /* Hover state */
 .tech-item:hover {
   color: var(--re-white);
-  border-color: #1e90ff;
+  border-color: #ff6f3c;
   transform: translateY(-8px) scale(1.04);
   box-shadow:
-    0 0 25px rgba(30,144,255,0.35),
-    inset 0 0 25px rgba(30,144,255,0.08);
+    0 0 25px rgba(255,111,60,0.35),
+    inset 0 0 25px rgba(255,111,60,0.08);
+
 }
 
 .tech-item:hover::before {
@@ -138,6 +148,10 @@
 /* Click feedback */
 .tech-item:active {
   transform: scale(0.97);
+}
+
+#contact{
+  margin-top: 10rem;
 }
 
 .contact-text {
@@ -167,7 +181,7 @@
   text-decoration: none;
   background: var(--re-surface);
   border: 1px solid rgba(255, 255, 255, 0.06);
-  border-left: 2px solid #1e90ff;
+  border-left: 2px solid #ff6f3c;
   transition:
     color 0.3s ease,
     box-shadow 0.4s ease,
@@ -177,19 +191,19 @@
 
 .contact-item i {
   font-size: 1rem;
-  color: #1e90ff;
+  color: #ff6f3c;
   transition: color 0.3s ease;
 }
 
 .contact-item:hover {
   color: var(--re-white);
-  border-left-color: #4db8ff;
-  box-shadow: 0 0 24px rgba(30, 144, 255, 0.3), -4px 0 12px rgba(30, 144, 255, 0.2);
+  border-left-color: #ff9b6a;
+  box-shadow: 0 0 24px rgba(255, 111, 60, 0.3), -4px 0 12px rgba(255, 111, 60, 0.2);
   transform: translateX(4px);
 }
 
 .contact-item:hover i {
-  color: #4db8ff;
+  color: #ff9b6a;
 }
 
 @media (max-width: 768px) {

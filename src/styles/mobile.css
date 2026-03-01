@@ -26,5 +26,66 @@
   }
 
 
+  hero {
+    padding: 4rem 1.5rem;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero::after {
+    display: none;
+  }
+
+  .hero-content {
+    padding-left: 0;
+    max-width: 100%;
+  }
+
+  .hero-title .real-name {
+    font-size: 3rem;
+    line-height: 1.1;
+  }
+
+  .hero-subtitle {
+    justify-content: center;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  /* VIDEO / IMAGEM PRINCIPAL */
+  #ashley1,
+  #ashley-franja {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    display: block;
+    margin: 3rem auto 0 auto;
+    max-width: 90%;
+    width: 100%;
+    opacity: 0.8;
+  }
+
+  #ashley-franja {
+
+    bottom: -115px;
+  }
+
+  /* IMAGEM ABOUT */
+  #ashley-about {
+    position: relative;
+    left: auto;
+    top: 700px;
+    transform: none;
+    display: block;
+    margin: 2rem auto 0 auto;
+    max-width: 75%;
+    width: 100%;
+  }
   
 }
+
+

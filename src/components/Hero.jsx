@@ -25,6 +25,18 @@ export default function Hero() {
             Contato
           </button>
         </div>
+
+
+        <div>
+  <video
+    id="ashley1"
+    src="/ashley-video.mp4"
+    autoPlay
+    muted
+    playsInline
+    loop
+  />
+</div>
       </div>
     </section>
   );

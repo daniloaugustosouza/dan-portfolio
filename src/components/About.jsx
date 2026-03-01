@@ -1,6 +1,7 @@
 export default function About() {
   return (
     <section id="about" className="section reveal">
+      <br />
       <h3 className="reveal">Sobre</h3>
       <div className="section-divider reveal"></div>
       <p className="reveal">
@@ -9,6 +10,12 @@ export default function About() {
         desenvolvimento de aplicações front-end e back-end, desenvolvidas
         ao longo de projetos práticos e acadêmicos.
       </p>
+
+
+      <div>
+        <img id="ashley-about" src="public/ashley-parada.png" alt="Ashley Resident Evil pose" />
+      </div>
+
     </section>
   );
 }

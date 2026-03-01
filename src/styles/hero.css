@@ -4,13 +4,13 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding: 0 6rem;
+  padding: 0 10rem;
   overflow: hidden;
 }
 
 
 
-/* Vertical blue accent bar */
+/* Vertical orange accent bar */
 .hero::after {
   content: "";
   position: absolute;
@@ -18,6 +18,7 @@
   top: 20%;
   height: 60%;
   width: 2px;
+
   background: linear-gradient(
     180deg,
     transparent,
@@ -25,12 +26,26 @@
     var(--re-red) 70%,
     transparent
   );
+
   box-shadow: 0 0 20px var(--re-red-glow);
   z-index: 1;
+
+  opacity: 0;
+  transform: scaleY(0);
+  transform-origin: top;
+
+  transition:
+    opacity 1s ease,
+    transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* quando hero estiver ativa */
+.hero.active::after {
+  opacity: 1;
+  transform: scaleY(1);
+}
 .hero-glow {
-  display: none; /* replaced by background */
+  display: none; 
 }
 
 .hero-content { 
@@ -38,6 +53,76 @@
   z-index: 2;
   max-width: 700px;
   padding-left: 2rem;
+}
+
+
+#ashley1 {
+  position: absolute;
+  left: 50rem;
+  top: 50%;
+  transform: translateY(-50%);
+  max-width: 650px;
+  height: auto;
+  z-index: 0;  
+  pointer-events: none;
+  user-select: none;
+
+  border-radius: 8px;
+
+  opacity: 0.9; 
+  mix-blend-mode: lighten;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+
+   filter: 
+    brightness(1.2)
+    contrast(1.1)
+    saturate(1.0)
+
+}
+
+
+
+#ashley-about {
+  position: absolute;
+  left: 60rem;
+  top: 90%;
+  transform: translateY(-50%);
+  max-width: 300px;
+  height: auto;
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+  mix-blend-mode: lighten;
+
+  animation: ashleyFadeIn 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+
+}
+
+@keyframes ashleyFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50%) translateY(60px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-50%) translateY(0) scale(1);
+  }
+}
+
+#ashley-franja {
+  position: absolute;
+  left: 50rem;
+  top: 50%;
+  transform: translateY(-50%);
+  max-width: 650px;
+  height: auto;
+  z-index: 0;  
+  pointer-events: none;
+  user-select: none;
+
+
+  mix-blend-mode: lighten;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
 /* Eyebrow label */
@@ -183,3 +268,4 @@
   .hero-subtitle { justify-content: center; }
   .hero-buttons { justify-content: center; }
 }
+

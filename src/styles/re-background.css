@@ -1,4 +1,3 @@
-
 /* Dark vignette overlay */
 #effects-root {
   position: relative;
@@ -6,7 +5,7 @@
   z-index: 1;
 }
 
-/* Blue corner vignette */
+/* Orange corner vignette */
 #effects-root::before {
   content: "";
   position: fixed;
@@ -15,20 +14,11 @@
   pointer-events: none;
   background:
     radial-gradient(
-      ellipse 120% 80% at 50% 0%,
-      transparent 40%,
-      rgba(0, 140, 255, 0.04) 70%,
-      rgba(0, 140, 255, 0.08) 100%
-    ),
-    radial-gradient(
-      ellipse 80% 60% at 0% 100%,
-      rgba(0, 170, 255, 0.06) 0%,
-      transparent 60%
-    ),
-    radial-gradient(
-      ellipse 80% 60% at 100% 100%,
-      rgba(0, 170, 255, 0.06) 0%,
-      transparent 60%
+      ellipse 140% 100% at 50% 50%,
+      rgba(255, 111, 60, 0.06) 0%,
+      rgba(255, 111, 60, 0.05) 40%,
+      rgba(255, 111, 60, 0.08) 75%,
+      rgba(255, 111, 60, 0.12) 100%
     );
   animation: atmospherePulse 12s ease-in-out infinite alternate;
 }
@@ -44,26 +34,24 @@ body > * + * {
   position: relative;
 }
 
-
-
-/* Blue section separator */
+/* Orange section separator */
 .re-separator {
   width: 100%;
   height: 1px;
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(0, 140, 255, 0.4) 30%,
-    rgba(0, 170, 255, 0.6) 50%,
-    rgba(0, 140, 255, 0.4) 70%,
+    rgba(255, 111, 60, 0.4) 30%,
+    rgba(255, 140, 60, 0.6) 50%,
+    rgba(255, 111, 60, 0.4) 70%,
     transparent 100%
   );
   margin: 0;
 }
 
-/* Animated red border top on hero */
+/* Animated orange border top on hero */
 .hero {
-    border-top: 1px solid rgba(0, 140, 255, 0.25);
+    border-top: 1px solid rgba(255, 111, 60, 0.25);
 }
 
 /* Particle canvas sits behind everything */
@@ -84,7 +72,7 @@ body > * + * {
   92% { 
     clip-path: polygon(0 20%, 100% 20%, 100% 35%, 0 35%);
     transform: translateX(-4px);
-    color: #3d8bff;
+    color: #ff6f3c;
   }
   93% { 
     clip-path: polygon(0 55%, 100% 55%, 100% 70%, 0 70%);
@@ -92,7 +80,6 @@ body > * + * {
   }
   94% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); transform: none; }
 }
-
 
 /* ── Typewriter cursor blink ── */
 @keyframes cursorBlink {
@@ -128,6 +115,3 @@ body > * + * {
     clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
   }
 }
-
-
-

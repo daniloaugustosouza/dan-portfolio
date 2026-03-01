@@ -25,12 +25,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(
-    180px circle at var(--x, 50%) var(--y, 50%),
-    rgba(30, 144, 255, 0.35),
-    rgba(30, 144, 255, 0.15) 40%,
-    transparent 70%
-  );
+  
   opacity: 0;
   transition: opacity 0.2s ease;
   pointer-events: none;

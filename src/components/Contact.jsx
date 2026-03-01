@@ -10,7 +10,7 @@ export default function Contact() {
         <a
           href="https://mail.google.com/mail/?view=cm&to=souzadaniloaugusto6@email.com"
           target="_blank"
-          className="contact-item"
+          className="btn gold contact-item"
         >
           <i className="fa-solid fa-envelope"></i>
           <span>Email</span>
@@ -18,7 +18,7 @@ export default function Contact() {
         <a
           href="https://www.linkedin.com/in/danilo-augusto-souza"
           target="_blank"
-          className="contact-item"
+          className="btn gold contact-item"
         >
           <i className="fa-brands fa-linkedin"></i>
           <span>LinkedIn</span>
@@ -26,12 +26,19 @@ export default function Contact() {
         <a
           href="https://github.com/daniloaugustosouza"
           target="_blank"
-          className="contact-item"
+          className="btn gold contact-item"
         >
           <i className="fa-brands fa-github"></i>
           <span>GitHub</span>
         </a>
       </div>
+
+      <img
+        id="ashley-franja"
+        src="public/ashley-franja.png"
+        alt="Ashley Resident Evil"
+      />
+
     </section>
   );
 }
