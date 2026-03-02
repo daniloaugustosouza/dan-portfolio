@@ -8,9 +8,7 @@
   overflow: hidden;
 }
 
-
-
-/* Vertical orange accent bar */
+/*vertical line*/
 .hero::after {
   content: "";
   position: absolute;
@@ -125,7 +123,6 @@
   transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
-/* Eyebrow label */
 .hero-content::before {
   content: "PORTFOLIO";
   display: block;
@@ -168,7 +165,7 @@
 
 }
 
-/* Glitch effect on name */
+/* GILTCH */
 .glitch-name span {
   display: inline-block;
   animation: letterGlitch 3s infinite;

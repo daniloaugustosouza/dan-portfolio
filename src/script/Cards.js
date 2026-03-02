@@ -1,6 +1,46 @@
 export function initCards() {
+
+  
   const cards = document.querySelectorAll(".card");
   const mobileCards = document.querySelectorAll('.card');
+
+
+  const container = document.querySelector('.cards');
+
+const indicator = document.createElement('div');
+indicator.classList.add('scroll-indicator');
+container.appendChild(indicator);
+
+function updateSlider() {
+  const containerRect = container.getBoundingClientRect();
+  let closest = 0;
+  let minDistance = Infinity;
+
+  cards.forEach((card, i) => {
+    const rect = card.getBoundingClientRect();
+    const distance = Math.abs(rect.left - containerRect.left);
+    if (distance < minDistance) {
+      minDistance = distance;
+      closest = i;
+    }
+  });
+
+  cards.forEach(c => c.classList.remove('active'));
+  const activeCard = cards[closest];
+  activeCard.classList.add('active');
+
+  const progressWidth = container.offsetWidth * 0.6;
+  const segment = progressWidth / cards.length;
+
+  indicator.style.width = segment + "px";
+  indicator.style.left = (container.offsetWidth * 0.2) + (segment * closest) + "px";
+}
+
+container.addEventListener('scroll', () => {
+  requestAnimationFrame(updateSlider);
+});
+
+updateSlider();
 
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
@@ -9,6 +49,9 @@ const observer = new IntersectionObserver(entries => {
     }
   });
 }, { threshold: 0.5 });
+
+
+
 
 mobileCards.forEach(card => observer.observe(card));
 

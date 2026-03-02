@@ -50,7 +50,6 @@
   transform: translateY(0);
 }
 
-/* Gold variant kept as RE red */
 .btn.gold {
   border-color: var(--re-red);
   color: var(--re-white);

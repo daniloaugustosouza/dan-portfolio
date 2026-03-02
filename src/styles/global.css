@@ -1,20 +1,20 @@
 
 
 :root {
-  --re-black:        #0b0c10;      /* fundo bem escuro */
-  --re-dark:         #1a1c23;      /* escuro frio para seções */
-  --re-surface:      #23252d;      /* superfícies principais */
-  --re-surface2:     #2d2f38;      /* cards, highlights */
+  --re-black:        #0b0c10;      
+  --re-dark:         #1a1c23;     
+  --re-surface:      #23252d;      
+  --re-surface2:     #2d2f38;     
 
-  --re-red:          #ff6f3c;      /* laranja principal */
-  --re-red-bright:   #ff9b6a;      /* laranja claro e quente */
-  --re-red-dim:      #b34820;      /* laranja escuro mais profundo */
-  --re-red-glow:     rgba(255,111,60,0.45); /* brilho laranja suave */
+  --re-red:          #ff6f3c;     
+  --re-red-bright:   #ff9b6a;      
+  --re-red-dim:      #b34820;      
+  --re-red-glow:     rgba(255,111,60,0.45); 
 
-  --re-white:        #f2f0ec;      /* branco quente */
-  --re-offwhite:     #e6dfd6;      /* textos secundários */
-  --re-grey:         #9a8f85;      /* cinza quente */
-  --re-grey-dim:     #5c5349;      /* cinza escuro de detalhes */
+  --re-white:        #f2f0ec;      
+  --re-offwhite:     #e6dfd6;      
+  --re-grey:         #9a8f85;      
+  --re-grey-dim:     #5c5349;      
 
   --re-border:       rgba(255,111,60,0.3);
   --re-border-dim:   rgba(255, 255, 255, 0.06);
@@ -55,9 +55,7 @@ body::before {
   background-size: 180px 180px;
 }
 
-/* Scan lines */
 
-/* Reveal */
 .reveal {
   opacity: 0;
   transform: translateY(60px);
@@ -73,7 +71,6 @@ body::before {
   filter: blur(0);
 }
 
-/* Scrollbar */
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: var(--re-dark); }
 ::-webkit-scrollbar-thumb { background: var(--re-red-dim); border-radius: 3px; }

@@ -107,44 +107,36 @@
 
 
 @media (max-width: 768px) {
+
   .cards {
     display: flex;
     gap: 1.4rem;
     overflow-x: auto;
-    padding-bottom: 1rem;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
-  }
-
-  .card {
-    flex: 0 0 80%;
-    scroll-snap-align: start;
-    transform: translateY(20px) scale(0.95);
-    opacity: 0;
-    transition: transform 0.35s ease, opacity 0.35s ease, box-shadow 0.35s ease;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-  }
-
-  .card.active {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-  }
-
-  .card:active {
-    transform: scale(0.97);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-  }
-
-  .card-figure {
-    aspect-ratio: 4 / 3;
-    transition: transform 0.5s ease;
-  }
-
-  .card-figure img {
-    transition: transform 0.5s ease, filter 0.5s ease;
+    padding-bottom: 2rem;
+    position: relative;
   }
 
   .cards::-webkit-scrollbar {
     display: none;
   }
+
+  .card {
+    flex: 0 0 88%;
+    scroll-snap-align: center;
+    transform: none !important;
+    opacity: 1 !important;
+    transition: none !important;
+  }
+
+  .card:active {
+    transform: none !important;
+  }
+
+  .card-figure {
+    aspect-ratio: 4 / 3;
+  }
+
+
 }

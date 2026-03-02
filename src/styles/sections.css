@@ -17,7 +17,6 @@
   margin-bottom: 0.4rem;
 }
 
-/* Blue underline accent */
 .section-divider {
   width: 80px;
   height: 2px;
@@ -101,7 +100,6 @@
   transform-style: preserve-3d;
 }
 
-/* Neon border pulse */
 .tech-item::before {
   content: "";
   position: absolute;
@@ -111,7 +109,6 @@
   transition: opacity .3s ease;
 }
 
-/* Light glow following mouse */
 .tech-item::after {
   content: "";
   position: absolute;
@@ -126,7 +123,6 @@
   pointer-events: none;
 }
 
-/* Hover state */
 .tech-item:hover {
   color: var(--re-white);
   border-color: #ff6f3c;
@@ -145,7 +141,6 @@
   opacity: 1;
 }
 
-/* Click feedback */
 .tech-item:active {
   transform: scale(0.97);
 }

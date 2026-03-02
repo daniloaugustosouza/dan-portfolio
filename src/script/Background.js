@@ -3,6 +3,7 @@ import { initCards } from "./Cards.js";
 import { initTechItems } from "./TechItems.js";
 
 export default function initBackground() {
+  
   const isMobile = window.matchMedia("(max-width: 768px)").matches;
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -46,11 +47,9 @@ export default function initBackground() {
     }
     ctx = canvas.getContext("2d");
 
-    // 👇 Declara as variáveis de tamanho ANTES da função resize
     let lastWidth = window.innerWidth;
     let lastHeight = window.innerHeight;
-
-    // 👇 NOVA função resize (com ajuste proporcional)
+    
     const resize = () => {
       const newWidth = window.innerWidth;
       const newHeight = window.innerHeight;

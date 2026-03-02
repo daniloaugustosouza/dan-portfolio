@@ -50,7 +50,6 @@
 .note2.note-stem { left: 18px; bottom: 4px; }
 .note2.note-flag { left: 18px; bottom: 24px; }
 
-/* Playing state — red glow */
 .music-icon.playing .note-head,
 .music-icon.playing .note-stem,
 .music-icon.playing .note-flag {
