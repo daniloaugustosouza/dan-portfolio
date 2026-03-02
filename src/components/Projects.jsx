@@ -19,7 +19,20 @@ export default function Projects() {
             </div>
           </div>
         
-
+          <div className="card">
+            <div className="card-figure">
+              <img
+                src="amazon.png"
+                alt="Amazon defense"
+              />
+            </div>
+            <div className="card-base">
+              <h4>Amazon Defense</h4>
+              <p>
+                Projeto de plataforma digital para divulgação de empresas sustentáveis.
+              </p>
+            </div>
+          </div>
 
           <div className="card">
             <div className="card-figure">
