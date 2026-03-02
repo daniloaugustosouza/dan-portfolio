@@ -36,6 +36,23 @@ export default function Navbar() {
   }
 };
 
+
+  useEffect(() => {
+    if ('mediaSession' in navigator) {
+      navigator.mediaSession.metadata = new MediaMetadata({
+        title: 'No Copyright Jazz Music',
+        artist: 'Mogo Mogo',
+        artwork: [
+          {
+            src: '/ashley-franja.png',
+            sizes: '512x512',
+            type: 'image/png'
+          }
+        ]
+      });
+    }
+  }, []);
+
   useEffect(() => {
     const musicIcons = document.querySelectorAll(".music-icon");
     musicIcons.forEach((icon) => {
