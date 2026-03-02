@@ -24,17 +24,17 @@ export default function Navbar() {
   };
 
   const toggleMusic = () => {
-    if (!audioRef.current) return;
-    if (isPlaying) {
-      fadeOutAudio(audioRef.current, 1000);
-      setIsPlaying(false);
-    } else {
-      audioRef.current.currentTime = 0;
-      audioRef.current.volume = 1;
-      audioRef.current.play().catch(() => {});
-      setIsPlaying(true);
-    }
-  };
+  if (!audioRef.current) return;
+
+  if (isPlaying) {
+    fadeOutAudio(audioRef.current, 1000);
+    setIsPlaying(false);
+  } else {
+    audioRef.current.volume = 1;
+    audioRef.current.play().catch(() => {});
+    setIsPlaying(true);
+  }
+};
 
   useEffect(() => {
     const musicIcons = document.querySelectorAll(".music-icon");
@@ -75,7 +75,7 @@ export default function Navbar() {
         <div className="note-flag note2"></div>
       </div>
       <audio ref={audioRef} loop>
-        <source src="/No-copyright-music-GameBeats.mp3" type="audio/mpeg" />
+        <source src="/Jazz-Music-(No Copyright)-Mogo Mogo.mp3" type="audio/mpeg" />
         Seu navegador não suporta áudio.
       </audio>
     </header>
